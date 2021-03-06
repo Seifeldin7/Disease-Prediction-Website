@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <img class="img" src="src\app\assets\heart.jpeg" alt="disease">
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <form [formGroup]="predictionForm" (ngSubmit)="onSubmit()">
+        <div formArrayName="disease-data">
+          <div class="form-group" *ngFor="let form of predictionForm.get('disease-data').controls; let i = index">
+            <input [type]="diseases[i].type" class="form-control" [formControlName]="i">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

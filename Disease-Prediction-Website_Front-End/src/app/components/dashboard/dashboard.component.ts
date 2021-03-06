@@ -6,21 +6,13 @@ import { Disease } from '../../models/disease.model'
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  opened:boolean = false;
-  diseases:Disease[] = [
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''},
-    {id:1,name:'diabetes',description:"Some quick example text to build on the card title and make up the bulk of the card's content.",image:''}
-  ];
+  opened: boolean = false;
+ 
   constructor() { }
 
   ngOnInit() {
   }
-log(s){
-  console.log(s)
-}
+  log(s) {
+    console.log(s)
+  }
 }

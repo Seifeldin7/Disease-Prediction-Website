@@ -12,7 +12,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AppRoutingModule } from './app.routing,module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SignupComponent,
     NavBarComponent,
     ContactusComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FlexLayoutModule,
     HttpClientModule,
     MatSidenavModule,
+    AppRoutingModule
   ],
   providers: [
   ],

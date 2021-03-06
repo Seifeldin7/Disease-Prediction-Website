@@ -5,38 +5,24 @@
 
 <mat-sidenav-container class="mb-5">
   <mat-sidenav #sidenav [(opened)]="opened" mode="side" (opened)="log('Opened')" (closed)="log('Closed')">
-    <div class="container" >
+    <div class="container">
       <div class="row ">
-        <button mat-button class="navbtn navleft" >Home</button>
+        <button mat-button class="navbtn navleft">Home</button>
       </div>
       <div class="row pic mb-5">
         <div class="col text-center">
-          <img class="mb-3"src="../../../favicon.ico">
+          <img class="mb-3" src="../../../favicon.ico">
           <br>
-          <button mat-button class="navbtn mb-3">Profile</button> 
+          <button mat-button class="navbtn mb-3">Profile</button>
           <br>
-          <button mat-button class="navbtn ">Logout</button> 
+          <button mat-button class="navbtn ">Logout</button>
 
-       </div>
+        </div>
       </div>
     </div>
 
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="container">
-      <div class="row ">
-        <div class="col p-1" *ngFor="let disease of diseases">
-          <div class="card " style="width: 18rem;">
-            <img class="card-img-top" style="height: 20vh;" src="src\app\assets\heart.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{disease.name}}</h5>
-              <p class="card-text">{{disease.description}}</p>
-              <button type="button" style="background-color: #33cc66;color: white;" class="btn mb-3 navbtn navleft">Predict</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
