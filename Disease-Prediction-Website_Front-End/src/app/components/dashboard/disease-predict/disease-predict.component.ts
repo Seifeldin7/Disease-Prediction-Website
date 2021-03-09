@@ -8,15 +8,16 @@ import { Disease } from '../../../models/disease.model'
 })
 export class DiseasePredictComponent implements OnInit {
   predictionForm: FormGroup;
-  diseases: any = [{ type: 'text' }, { type: 'radio' }]
+  disease: Disease = { id: 1, name: 'Heart Disease', image: '', description: '', fields: [{type: 'text', label: 'Whatever'}] };
+  fields: any[];
   constructor() { }
 
   ngOnInit() {
     this.predictionForm = new FormGroup({
       'disease-data': new FormArray([])
     });
-    for (let disease in this.diseases) {
-      console.log(disease)
+    this.fields = this.disease.fields;
+    for (let field of this.disease.fields) {
       const control = new FormControl(null);
       (<FormArray>this.predictionForm.get('disease-data')).push(control);
     }

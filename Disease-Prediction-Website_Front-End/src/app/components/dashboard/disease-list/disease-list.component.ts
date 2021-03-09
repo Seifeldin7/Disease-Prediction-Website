@@ -8,13 +8,13 @@ import { Disease } from '../../../models/disease.model'
 export class DiseaseListComponent implements OnInit {
   opened: boolean = false;
   diseases: Disease[] = [
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '' }
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
+    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] }
   ];
   constructor() { }
 

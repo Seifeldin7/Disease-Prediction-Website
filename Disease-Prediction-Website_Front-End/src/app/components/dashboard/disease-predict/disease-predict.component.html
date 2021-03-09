@@ -1,15 +1,33 @@
 <div class="container">
   <div class="row">
+    <div class="col-12 mb-2">
+      <h2 style="color: black;">{{disease.name}}</h2>
+      <p style="color: black; font-size: 1.2rem">Please enter the required data to help us predict</p>
+    </div>
+
+  </div>
+  <div class="row">
     <div class="col-md-6 col-xs-12">
-      <img class="img" src="src\app\assets\heart.jpeg" alt="disease">
+      <img class="img" src="src\app\assets\heart.jpeg" alt="disease" style="margin-right: -50px;">
     </div>
     <div class="col-md-6 col-xs-12">
       <form [formGroup]="predictionForm" (ngSubmit)="onSubmit()">
         <div formArrayName="disease-data">
           <div class="form-group" *ngFor="let form of predictionForm.get('disease-data').controls; let i = index">
-            <input [type]="diseases[i].type" class="form-control" [formControlName]="i">
+            <div *ngIf="fields[i].type === 'text'">
+              <label>{{fields[i].label}}</label>
+              <input class="form-control" [formControlName]="i" required="required"
+                [placeholder]="'Enter ' + fields[i].label">
+            </div>
+
+            <div *ngIf="fields[i].type === 'number'">
+              <label>{{fields[i].label}}</label>
+              <input class="form-control" [formControlName]="i" required="required" type="number">
+            </div>
           </div>
         </div>
+        <button type="button" style="background-color: #33cc66;color: white;"
+          class="btn mb-3 navbtn navleft">Predict</button>
       </form>
     </div>
   </div>
