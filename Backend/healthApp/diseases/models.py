@@ -27,5 +27,6 @@ class Field(models.Model):
     type = models.CharField(max_length=128)
     label = models.CharField(max_length=128)
     value = models.CharField(max_length=128)
+    select_options = models.CharField(max_length=400, default="")
     disease = models.ForeignKey(Disease, on_delete=models.CASCADE)
     
