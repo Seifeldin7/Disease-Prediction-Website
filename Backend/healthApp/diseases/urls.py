@@ -6,6 +6,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
     path('predict/', views.PredictView.as_view()),
     path('diseases/', views.DiseaseView.as_view()),
+    path('fields/', views.FieldView.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

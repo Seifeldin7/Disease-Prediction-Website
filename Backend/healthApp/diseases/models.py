@@ -14,7 +14,7 @@ class Disease(models.Model):
     '''
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=300)
-    image = models.FileField()
+    image = models.CharField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
 class Field(models.Model):
