@@ -39,9 +39,9 @@ class PredictView (APIView):
             disease= self.request.query_params.get('disease')
             body_unicode = request.body.decode('utf-8')
             body = json.loads(body_unicode)
-            predict_list = list(body.values())
+            predict_list = list(body.values()) 
             classifier = Classifier(predict_list, disease)
             prediction = classifier.predict()
-            return Response(prediction)
+            return Response(prediction[0])
         except Exception as ex:
             return Response({"msg":"An error has happened"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
