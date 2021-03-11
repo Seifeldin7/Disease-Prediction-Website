@@ -13,6 +13,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { AppRoutingModule } from './app.routing,module';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -33,6 +36,8 @@ import { AppRoutingModule } from './app.routing,module';
     HttpClientModule,
     MatSidenavModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([])
   ],
   providers: [
   ],

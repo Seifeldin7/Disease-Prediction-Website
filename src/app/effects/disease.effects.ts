@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 import { Disease } from '../models/disease.model';
@@ -10,14 +10,12 @@ import { DiseaseService } from '../services/disease.service';
 
 @Injectable()
 export class DiseaseEffects {
-
-    loadDiseases$: Observable<Action> = createEffect(
-        (): any => this.actions$.pipe(
-            ofType(DiseaseActions.getDiseases),
-            switchMap(() => this.diseaseService.getAllDiseases()
-                .pipe(
-                    map(diseases => ({ type: DiseaseActions.GET_DISEASES, payload: diseases }))
-                )
+    @Effect()
+    loadDiseases$: Observable<Action> = this.actions$.pipe(
+        ofType(DiseaseActions.GET_DISEASES),
+        switchMap(() => this.diseaseService.getAllDiseases()
+            .pipe(
+                map(diseases => ({ type: DiseaseActions.SET_DISEASES, payload: diseases }))
             )
         )
     );

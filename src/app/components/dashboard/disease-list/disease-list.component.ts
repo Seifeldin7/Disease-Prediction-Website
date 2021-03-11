@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Disease } from '../../../models/disease.model'
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Disease } from '../../../models/disease.model';
+import * as fromDisease from '../../../reducers/disease.reducers';
+import * as DiseaseActions from '../../../actions/disease.actions';
+
 @Component({
   selector: 'app-disease-list',
   templateUrl: './disease-list.component.html',
@@ -7,18 +12,13 @@ import { Disease } from '../../../models/disease.model'
 })
 export class DiseaseListComponent implements OnInit {
   opened: boolean = false;
-  diseases: Disease[] = [
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] },
-    { id: 1, name: 'diabetes', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", image: '', fields: [] }
-  ];
-  constructor() { }
+  diseases: Observable<{diseases: Disease[]}> = this.store.select(state => state.diseases);
+
+  constructor( private store: Store<fromDisease.FeatureState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new DiseaseActions.getDiseases());
+    console.log(this.diseases)
   }
   log(s) {
     console.log(s)

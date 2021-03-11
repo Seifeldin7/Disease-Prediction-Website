@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { diseaseReducer } from 'src/app/reducers/disease.reducers';
+import { DiseaseEffects } from 'src/app/effects/disease.effects';
 
 
 @NgModule({
@@ -30,8 +31,8 @@ import { diseaseReducer } from 'src/app/reducers/disease.reducers';
     MatSelectModule,
     MatOptionModule,
     FormsModule,
-    StoreModule.provideStore({diseases: diseaseReducer}),
-    EffectsModule.forFeature([])
+    StoreModule.forFeature('diseases', diseaseReducer),
+    EffectsModule.forFeature([DiseaseEffects])
   ],
   exports: [
       MatFormFieldModule,

@@ -3,11 +3,11 @@ import { Injectable } from "@angular/core";
 
 @Injectable({
     providedIn: 'root'
-  })
-  export class DiseaseService {
-    constructor (private http: HttpClient) {}
-  
+})
+export class DiseaseService {
+    constructor(private http: HttpClient) { }
+
     getAllDiseases() {
-      return this.http.get('/movies');
+        return this.http.get('http://127.0.0.1:8000/diseases/');
     }
-  }
+}

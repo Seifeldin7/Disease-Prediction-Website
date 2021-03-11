@@ -16,7 +16,7 @@ const initialState: State = {
 
 export function diseaseReducer(state = initialState, action: DiseaseActions.DiseaseActions) {
     switch (action.type) {
-        case DiseaseActions.GET_DISEASES:
+        case DiseaseActions.SET_DISEASES:
             return {
                 ...state,
                 diseases: action.payload
