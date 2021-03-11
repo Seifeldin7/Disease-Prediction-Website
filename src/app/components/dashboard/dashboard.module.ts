@@ -8,6 +8,9 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { MatSidenavModule, MatRadioModule, MatSelectModule, MatOptionModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { diseaseReducer } from 'src/app/reducers/disease.reducers';
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSelectModule,
     MatOptionModule,
     FormsModule,
+    StoreModule.provideStore({diseases: diseaseReducer}),
+    EffectsModule.forFeature([])
   ],
   exports: [
       MatFormFieldModule,

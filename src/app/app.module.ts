@@ -13,6 +13,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { AppRoutingModule } from './app.routing,module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { AppRoutingModule } from './app.routing,module';
     FlexLayoutModule,
     HttpClientModule,
     MatSidenavModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
   ],
