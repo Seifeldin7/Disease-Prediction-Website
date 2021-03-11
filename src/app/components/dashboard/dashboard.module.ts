@@ -6,7 +6,7 @@ import { DiseaseListComponent } from './disease-list/disease-list.component';
 import { DiseasePredictComponent } from './disease-predict/disease-predict.component';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard.routing.module';
-import { MatSidenavModule, MatRadioModule, MatSelectModule, MatOptionModule } from '@angular/material';
+import { MatSidenavModule, MatRadioModule, MatSelectModule, MatOptionModule, MatIconModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -30,6 +30,7 @@ import { DiseaseEffects } from 'src/app/effects/disease.effects';
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
+    MatIconModule,
     FormsModule,
     StoreModule.forFeature('diseases', diseaseReducer),
     EffectsModule.forFeature([DiseaseEffects])

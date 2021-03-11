@@ -1,18 +1,17 @@
-
 mat-sidenav-container {
     height: 100vh;
-  }
+}
   
-  mat-sidenav, mat-sidenav-content {
+mat-sidenav, mat-sidenav-content {
     padding: 16px;
-  }
+}
   
-  mat-sidenav {
+mat-sidenav {
     background-color: #33cc66;
     width: 300px;
-  }
+}
 
-  .gr{
+.gr {
     color: rgba(65, 191, 102, 1);
     font-size: x-large;
 }
@@ -28,6 +27,7 @@ mat-sidenav-container {
     color: white;
     transition: 0.4s;
     border: none;
+    min-width: 120px;
     border-radius: 1.5px;
     &:hover {
         width: 70%;
@@ -42,6 +42,21 @@ mat-sidenav-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 30vh;
     margin: auto;
 }
+
+nav {
+  background-color: rgb(236, 236, 236);
+}
+
+mat-icon {
+  color: #33cc66;
+  align-self: center;
+}
+.menu-btn {
+  border-color: #33cc66;
+  overflow: hidden;
+  border-radius: 15%;
+}
+

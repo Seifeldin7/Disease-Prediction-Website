@@ -1,19 +1,26 @@
 <nav class="navbar navbar-expand-sm ">
-  <button type="button" (click)="opened=!opened" mat-icon-button> </button>
-  <a href="#" class="navbar-brand gr ml-2">mySite</a>
+  <button type="button" (click)="opened=!opened" mat-icon-button class="menu-btn">
+    <mat-icon class="mat-icon">menu</mat-icon>
+  </button>
+  <a href="#" class="navbar-brand gr ml-2">My Health</a>
+  <img class="mr-3 ml-auto" style="max-height: 50px;" src="https://images.coollogo.com/images/prism-large-green.png">
 </nav>
 
 <mat-sidenav-container class="mb-5">
-  <mat-sidenav #sidenav [(opened)]="opened" mode="side" (opened)="log('Opened')" (closed)="log('Closed')">
+  <mat-sidenav #sidenav [(opened)]="opened" mode="side">
     <div class="container">
-      <div class="row ">
+      <div class="row mb-4">
         <button mat-button class="navbtn navleft">Home</button>
       </div>
+    </div>
+    <img style="max-height: 400px; width: 100%;" src="https://wallpaperaccess.com/full/624111.jpg">
+    <div class="container">
       <div class="row pic mb-5">
         <div class="col text-center">
-          <img class="mb-3" src="../../../favicon.ico">
           <br>
           <button mat-button class="navbtn mb-3">Profile</button>
+          <br>
+          <button mat-button class="navbtn mb-3">About Me</button>
           <br>
           <button mat-button class="navbtn ">Logout</button>
 
