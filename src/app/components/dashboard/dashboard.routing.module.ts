@@ -8,7 +8,7 @@ import { DiseasePredictComponent } from './disease-predict/disease-predict.compo
 const dashboardRoutes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: '', component: DiseaseListComponent },
-    { path: ':id/predict', component: DiseasePredictComponent },
+    { path: 'predict/:id', component: DiseasePredictComponent },
   ] },
 ];
 
