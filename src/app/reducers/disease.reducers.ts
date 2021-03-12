@@ -3,15 +3,17 @@ import { Disease } from '../models/disease.model';
 import * as fromApp from '../store/app.reducers';
 
 export interface FeatureState extends fromApp.AppState {
-    diseases: State
-  }
+    diseases: State,
+}
 
 export interface State {
     diseases: Disease[];
+    prediction: number;
 }
 
 const initialState: State = {
-    diseases: []
+    diseases: [],
+    prediction: 0
 };
 
 export function diseaseReducer(state = initialState, action: DiseaseActions.DiseaseActions) {
@@ -20,6 +22,11 @@ export function diseaseReducer(state = initialState, action: DiseaseActions.Dise
             return {
                 ...state,
                 diseases: action.payload
+            };
+        case DiseaseActions.PREDICT_DISEASE:
+            return {
+                ...state,
+                prediction: action.payload
             };
         default:
             return state;

@@ -3,9 +3,11 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Field } from 'src/app/models/field.model';
-import { Disease } from '../../../models/disease.model';
 import * as FieldActions from '../../../actions/field.actions';
+import * as DiseaseActions from '../../../actions/disease.actions';
 import * as fromField from '../../../reducers/field.reducers';
+import * as fromDisease from '../../../reducers/disease.reducers';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-disease-predict',
@@ -14,16 +16,26 @@ import * as fromField from '../../../reducers/field.reducers';
 })
 export class DiseasePredictComponent implements OnInit {
   predictionForm: FormGroup;
-  disease: Disease = { id: 609, name: 'Heart Disease', image: '', description: '' };
-  fieldsObservable: Observable<{ fields: Field[] }> = this.store.select(state => state.fields);;
+  diseaseId: number;
+  fieldsObservable: Observable<{ fields: Field[] }> = this.fieldsStore.select(state => state.fields);
   fields: Field[];
-  constructor(private store: Store<fromField.FeatureState>) { }
+  prediction: Observable<{ prediction: number }> = this.diseaseStore.select(state => state.diseases);
+
+  constructor(private route: ActivatedRoute,
+    private fieldsStore: Store<fromField.FeatureState>,
+    private diseaseStore: Store<fromDisease.FeatureState>) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.diseaseId = +params['id'];
+    });
+
     this.predictionForm = new FormGroup({
       'disease-data': new FormArray([])
     });
-    this.store.dispatch(new FieldActions.getFields(this.disease.id));
+
+    this.fieldsStore.dispatch(new FieldActions.getFields(this.diseaseId));
+
     this.fieldsObservable.subscribe((fields) => {
       this.fields = fields.fields;
       for (let field of this.fields) {
@@ -32,7 +44,12 @@ export class DiseasePredictComponent implements OnInit {
       }
     })
 
-
   }
 
+  onPredict() {
+    this.diseaseStore.dispatch(new DiseaseActions.predictDisease({
+      diseaseId: this.diseaseId, formValues: this.predictionForm.value['disease-data']
+    }));
+    //this.predictionForm.reset();
+  }
 }

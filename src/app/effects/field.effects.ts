@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { Action, Store } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import * as FieldActions from '../actions/field.actions';
 import { Observable, of } from 'rxjs';
 import { FieldService } from '../services/field.service';
-import * as fromField from '../reducers/field.reducers';
 
 
 @Injectable()
@@ -23,6 +22,6 @@ export class FieldEffects {
 
     constructor(private actions$: Actions,
         private fieldService: FieldService,
-        private store: Store<fromField.FeatureState>) {
+    ) {
     }
 }
