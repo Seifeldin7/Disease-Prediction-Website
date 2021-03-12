@@ -18,7 +18,6 @@ export class DiseaseListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new DiseaseActions.getDiseases());
-    console.log(this.diseases)
   }
   log(s) {
     console.log(s)

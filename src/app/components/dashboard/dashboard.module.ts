@@ -12,6 +12,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { diseaseReducer } from 'src/app/reducers/disease.reducers';
 import { DiseaseEffects } from 'src/app/effects/disease.effects';
+import { FieldEffects } from 'src/app/effects/field.effects';
+import { fieldReducer } from 'src/app/reducers/field.reducers';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { DiseaseEffects } from 'src/app/effects/disease.effects';
     MatIconModule,
     FormsModule,
     StoreModule.forFeature('diseases', diseaseReducer),
-    EffectsModule.forFeature([DiseaseEffects])
+    StoreModule.forFeature('fields', fieldReducer),
+    EffectsModule.forFeature([DiseaseEffects, FieldEffects])
   ],
   exports: [
       MatFormFieldModule,

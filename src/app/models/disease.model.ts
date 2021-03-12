@@ -3,12 +3,10 @@ export class Disease {
     name:string;
     description:string;
     image:string;
-    fields: any[]
-    constructor(id:number,name:string,description:string,image:string, fields: any[]){
+    constructor(id:number,name:string,description:string,image:string){
       this.id=id;
       this.name=name;
       this.description=description;
       this.image=image;
-      this.fields=fields;
     }
   }
