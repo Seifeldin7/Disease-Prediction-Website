@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mb-2">
-      <!-- <h2 style="color: black;">{{disease.name}}</h2> -->
+      <h2 style="color: black;">{{disease.name}}</h2>
       <p style="color: black; font-size: 1.2rem">Please enter the required data to help us predict</p>
     </div>
 
   </div>
   <div class="row">
     <div class="col-md-6 col-xs-12">
-      <img class="img" src="src\app\assets\heart.jpeg" alt="disease" style="margin-right: -50px;">
+      <img class="img" [src]="disease.image" alt="disease" style="margin-right: -50px;">
     </div>
     <div class="col-md-6 col-xs-12">
       <form [formGroup]="predictionForm" (ngSubmit)="onSubmit()">
@@ -28,25 +28,12 @@
         </div>
         <button (click)="onPredict()" type="button" style="background-color: #33cc66;color: white;"
           class="btn mb-3 navbtn navleft">Predict</button>
-        <div class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Result</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>{{prediction | async}}</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </form>
+      <div class="alert alert-danger" role="alert" *ngIf="clicked && hasDisease">
+        Sorry, You have a high chance of getting this diease, Please contact a doctor as soon as possible.
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="clicked && !hasDisease">
+        Great! It seems you don't have this disease.
+      </div>
     </div>
   </div>
-</div>

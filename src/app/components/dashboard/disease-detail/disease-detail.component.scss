@@ -1,18 +1,17 @@
-
 mat-sidenav-container {
     height: 100vh;
-  }
+}
   
-  mat-sidenav, mat-sidenav-content {
+mat-sidenav, mat-sidenav-content {
     padding: 16px;
-  }
+}
   
-  mat-sidenav {
+mat-sidenav {
     background-color: #33cc66;
     width: 300px;
-  }
+}
 
-.gr{
+.gr {
     color: rgba(65, 191, 102, 1);
     font-size: x-large;
 }
@@ -20,6 +19,10 @@ mat-sidenav-container {
     -webkit-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
+    height: 50vh;
+}
+.card-text {
+  height: 10vh;
 }
 .navbtn{
     font-size:  20px;

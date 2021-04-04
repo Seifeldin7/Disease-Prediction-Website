@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Disease } from '../../models/disease.model'
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,12 @@ import { Disease } from '../../models/disease.model'
 export class DashboardComponent implements OnInit {
   opened: boolean = false;
  
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  onHomeClicked() {
+    this.router.navigate(["../"]);
+  }
 }

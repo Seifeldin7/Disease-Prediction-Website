@@ -8,6 +8,7 @@ import * as DiseaseActions from '../../../actions/disease.actions';
 import * as fromField from '../../../reducers/field.reducers';
 import * as fromDisease from '../../../reducers/disease.reducers';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Disease } from 'src/app/models/disease.model';
 
 @Component({
   selector: 'app-disease-predict',
@@ -19,8 +20,10 @@ export class DiseasePredictComponent implements OnInit {
   diseaseId: number;
   fieldsObservable: Observable<{ fields: Field[] }> = this.fieldsStore.select(state => state.fields);
   fields: Field[];
-  prediction: Observable<{ prediction: number }> = this.diseaseStore.select(state => state.diseases);
-
+  diseasesObservable: Observable<{ prediction: number, diseases: Disease[] }> = this.diseaseStore.select(state => state.diseases);
+  hasDisease: boolean;
+  clicked: boolean = false;
+  disease: Disease;
   constructor(private route: ActivatedRoute,
     private fieldsStore: Store<fromField.FeatureState>,
     private diseaseStore: Store<fromDisease.FeatureState>) { }
@@ -42,14 +45,18 @@ export class DiseasePredictComponent implements OnInit {
         const control = new FormControl(null);
         (<FormArray>this.predictionForm.get('disease-data')).push(control);
       }
-    })
+    });
 
+    this.diseasesObservable.subscribe((diseases) => {
+      this.disease = diseases.diseases.filter((disease) => disease.id === this.diseaseId)[0];
+      (diseases.prediction) ? this.hasDisease = true : false;
+    });
   }
 
   onPredict() {
     this.diseaseStore.dispatch(new DiseaseActions.predictDisease({
       diseaseId: this.diseaseId, formValues: this.predictionForm.value['disease-data']
     }));
-    //this.predictionForm.reset();
+    this.clicked = true;
   }
 }

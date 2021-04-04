@@ -10,15 +10,13 @@
   <mat-sidenav #sidenav [(opened)]="opened" mode="side">
     <div class="container">
       <div class="row mb-4">
-        <button mat-button class="navbtn navleft">Home</button>
+        <button mat-button class="navbtn navleft" (click)= "onHomeClicked()">Home</button>
       </div>
     </div>
     <img style="max-height: 400px; width: 100%;" src="https://wallpaperaccess.com/full/624111.jpg">
     <div class="container">
       <div class="row pic mb-5">
         <div class="col text-center">
-          <br>
-          <button mat-button class="navbtn mb-3">Profile</button>
           <br>
           <button mat-button class="navbtn mb-3">About Me</button>
           <br>

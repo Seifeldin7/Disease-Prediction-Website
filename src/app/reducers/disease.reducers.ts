@@ -23,7 +23,7 @@ export function diseaseReducer(state = initialState, action: DiseaseActions.Dise
                 ...state,
                 diseases: action.payload
             };
-        case DiseaseActions.PREDICT_DISEASE:
+        case DiseaseActions.SET_PREDICTION:
             return {
                 ...state,
                 prediction: action.payload
