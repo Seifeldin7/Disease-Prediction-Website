@@ -1,6 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { Subject } from 'rxjs';
@@ -10,6 +10,8 @@ import { fieldReducer } from 'src/app/reducers/field.reducers';
 import { DiseasePredictComponent } from './disease-predict.component';
 
 describe('DashboardPredictComponent', () => {
+    let component: DiseasePredictComponent | any;
+    let fixture: ComponentFixture<DiseasePredictComponent>;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [DiseasePredictComponent],
@@ -25,35 +27,42 @@ describe('DashboardPredictComponent', () => {
         });
     });
 
-    it('should create the app', () => {
-        let fixture = TestBed.createComponent(DiseasePredictComponent);
-        let app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
+    beforeEach(() => {
+         fixture = TestBed.createComponent(DiseasePredictComponent);
+         component = fixture.debugElement.componentInstance;
+    });
+
+    it('should create the DashboardPredictComponent', () => {
+        expect(component).toBeTruthy();
     });
 
     it('should have 3 fields', () => {
-        let fixture = TestBed.createComponent(DiseasePredictComponent);
-        let app = fixture.debugElement.componentInstance;
-        app.fieldsObservable = new Subject<{ fields: Field[] }>();
+        component.fieldsObservable = new Subject<{ fields: Field[] }>();
         fixture.detectChanges();
-        app.fieldsObservable.next({
+        component.fieldsObservable.next({
             fields: [
                 new Field(0, "number", "Protein", "1"),
                 new Field(1, "text", "Age", "20"),
                 new Field(2, "text", "Gender", "M"),
             ]
         });
-        expect(app.fields.length).toEqual(3);
-        expect(app.predictionForm.get('disease-data').length).toEqual(3);
+        expect(component.fields.length).toEqual(3);
+        expect((<FormArray>component.predictionForm.get('disease-data')).length).toEqual(3);
     });
 
     it('should render disease name and image', () => {
-        let fixture = TestBed.createComponent(DiseasePredictComponent);
-        let app = fixture.debugElement.componentInstance;
-        app.disease = new Disease(0, "Liver", "Dangerous", "emptyimage");
+        component.diseasesObservable = new Subject<{ diseases: Disease[], prediction: number }>();
+        component.diseasesObservable.next({
+            diseases: [
+                new Disease(0, "number", "Protein", "1"),
+                new Disease(1, "text", "Age", "20"),
+                new Disease(2, "text", "Gender", "M"),
+            ]
+        });
+        component.disease = new Disease(0, "Liver", "Dangerous", "emptyimage");
         fixture.detectChanges();
         let compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h2').textContent).toContain(app.disease.name);
-        expect(compiled.querySelector('img').src).toContain(app.disease.image);
+        expect(compiled.querySelector('h2').textContent).toContain(component.disease.name);
+        expect(compiled.querySelector('img').src).toContain(component.disease.image);
     });
 });
