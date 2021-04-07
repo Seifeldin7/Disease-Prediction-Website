@@ -1,50 +1,12 @@
-mat-sidenav-container {
-    height: 100vh;
-}
-  
-mat-sidenav, mat-sidenav-content {
-    padding: 16px;
-}
-  
-mat-sidenav {
-    background-color: #33cc66;
-    width: 300px;
-}
+@import "../../../../styles.scss";
 
-.gr {
-    color: rgba(65, 191, 102, 1);
-    font-size: x-large;
-}
 .card{
     -webkit-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     height: 50vh;
 }
+
 .card-text {
   height: 10vh;
-}
-.navbtn{
-    font-size:  20px;
-    width: auto; 
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    transition: 0.4s;
-    border: none;
-    border-radius: 1.5px;
-    &:hover {
-        width: 70%;
-     }
-}
-.navbtn.navleft{
-    &:hover {
-        padding-right: 5vw;
-     }
-}
-.pic{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    margin: auto;
 }

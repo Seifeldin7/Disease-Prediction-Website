@@ -1,35 +1,16 @@
-@media screen and (min-width: 640px) {
-    .text{
-        text-align: center;
-        color:rgb(252, 251, 250);
-        font-size: 50px;
-    }
-    
-}
-@media screen and (max-width: 640px) {
-    .text{
-        text-align: center;
-        color:rgb(252, 251, 250);
-        font-size: 30px;
-    }
-    
-}
-.gr{
-    color: 	#2fe42f;
-    font-size: x-large;
-}
+@import "../../../styles.scss";
 
+.text {
+    text-align: center;
+    color:map-get($map: $colors, $key: light);
+    font-size: $font-xlg;
+}
 p{
     text-align: center;
-    color:rgb(252, 251, 250);
+    color:map-get($map: $colors, $key: light);
 }
 .container2{
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../../assets/med.jpg);
-    background-size:cover ;
-    background-position: center;    
-    width: 100%;
-    left: 0;
-    
+    @include backgroundImg;
 }
 .container{
     display: flex;
@@ -37,6 +18,4 @@ p{
     align-items: center;
     height: 100vh;
 }
-.btn{
-    width: 200px;
-}
+

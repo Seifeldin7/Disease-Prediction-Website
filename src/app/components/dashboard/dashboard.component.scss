@@ -1,61 +1,53 @@
+@import "../../../styles.scss";
+
 mat-sidenav-container {
     height: 100vh;
 }
   
-mat-sidenav, mat-sidenav-content {
-    padding: 16px;
-}
-  
 mat-sidenav {
-    background-color: #33cc66;
-    width: 300px;
+    background-color: map-get($colors, main);
+    width: 20rem;
 }
 
 .gr {
-    color: rgba(65, 191, 102, 1);
-    font-size: x-large;
+    color: map-get($colors, main);
+    font-size: $font-lg;
 }
+
 .card{
     -webkit-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
     box-shadow: -1px 0px 29px 3px rgba(0, 0, 0, 0.29);
 }
+
 .navbtn{
-    font-size:  20px;
-    width: auto; 
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    transition: 0.4s;
-    border: none;
-    min-width: 120px;
-    border-radius: 1.5px;
-    &:hover {
-        width: 70%;
-     }
+    @include navbtn;
 }
+
 .navbtn.navleft{
     &:hover {
-        padding-right: 5vw;
+        padding-right: $p-sm;
      }
 }
+
 .pic{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30vh;
-    margin: auto;
 }
 
 nav {
-  background-color: rgb(236, 236, 236);
+  background-color: map-get($colors, nav);
 }
 
 mat-icon {
-  color: #33cc66;
+  color: map-get($colors, main);
   align-self: center;
 }
+
 .menu-btn {
-  border-color: #33cc66;
+  border-color: map-get($colors, main);
   overflow: hidden;
   border-radius: 15%;
 }

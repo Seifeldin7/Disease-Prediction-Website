@@ -1,39 +1,22 @@
+@import "../../../../styles.scss";
+
 .img {
   width: 100%;
 }
+
 :host {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .navbtn{
-  font-size:  20px;
-  width: auto; 
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  transition: 1s;
-  border: none;
-  border-radius: 1.5px;
-  width: 40%;
-  &:hover {
-      width: 100%;
-   }
+  @include navbtn;
 }
+
 .navbtn.navleft{
   &:hover {
-      padding-right: 3vw;
+      padding-right: $p-sm;
    }
 }
-// h2 {
-//   position: relative;
-// }
-// h2::after {
-//   content: " ";
-//   display: block;
-//   position: absolute;
-//   height: 4px;
-//   background: #05806b;
-//   width: 40px;
-//   top: calc(50% - 2px);
-//   margin-top: 25px;
-//   }
+

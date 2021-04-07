@@ -1,11 +1,13 @@
+@import "../../../styles.scss";
+
 .footer{
-    background-color: rgb(41, 37, 37);
+    background-color: map-get($map: $colors, $key: secondary);
     margin: 0px auto;
-    padding: 20px 0px 20px 0px;
+    padding: $p-sm 0px $p-sm 0px;
 }
 footer{
     color: white;
 }
 li a{
-    color: #33cc66;
+    color: map-get($map: $colors, $key: main);
 }
