@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mb-2">
-      <h2 style="color: black;">{{disease.name}}</h2>
+      <h2 style="color: black;" *ngIf="disease">{{disease.name}}</h2>
       <p style="color: black; font-size: 1.2rem">Please enter the required data to help us predict</p>
     </div>
 
   </div>
   <div class="row">
     <div class="col-md-6 col-xs-12">
-      <img class="img" [src]="disease.image" alt="disease" style="margin-right: -50px;">
+      <img *ngIf="disease" class="img" [src]="disease.image" alt="disease" style="margin-right: -50px;">
     </div>
     <div class="col-md-6 col-xs-12">
       <form [formGroup]="predictionForm" (ngSubmit)="onSubmit()">

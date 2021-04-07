@@ -11,15 +11,11 @@ import * as DiseaseActions from '../../../actions/disease.actions';
   styleUrls: ['./disease-list.component.scss']
 })
 export class DiseaseListComponent implements OnInit {
-  opened: boolean = false;
   diseases: Observable<{diseases: Disease[]}> = this.store.select(state => state.diseases);
 
   constructor( private store: Store<fromDisease.FeatureState>) { }
 
   ngOnInit() {
     this.store.dispatch(new DiseaseActions.getDiseases());
-  }
-  log(s) {
-    console.log(s)
   }
 }
