@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Disease } from '../../models/disease.model'
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

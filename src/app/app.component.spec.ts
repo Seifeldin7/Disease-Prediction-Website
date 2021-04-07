@@ -1,11 +1,26 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing,module';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { APP_BASE_HREF } from '@angular/common';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        HomeComponent,
+        AppComponent,
+        NavBarComponent,
+        FooterComponent,
       ],
+      imports: [
+        AppRoutingModule
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue : '/' }
+      ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -13,15 +28,5 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'Disease-Prediction-Website'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Disease-Prediction-Website');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Disease-Prediction-Website!');
-  }));
+
 });

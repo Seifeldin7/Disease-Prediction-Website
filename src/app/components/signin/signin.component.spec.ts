@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 import { SigninComponent } from './signin.component';
 
@@ -8,7 +9,7 @@ describe('SigninComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SigninComponent ]
+      declarations: [ SigninComponent, NavBarComponent ]
     })
     .compileComponents();
   }));

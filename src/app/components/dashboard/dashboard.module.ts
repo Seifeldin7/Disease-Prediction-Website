@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DiseaseDetailComponent } from './disease-detail/disease-detail.component';
 import { DiseaseListComponent } from './disease-list/disease-list.component';
@@ -42,8 +42,7 @@ import { fieldReducer } from 'src/app/reducers/field.reducers';
       MatFormFieldModule,
       MatRadioModule,
       MatSelectModule,
-      MatOptionModule,
-      
+      MatOptionModule,   
   ]
 })
 export class DashboardModule {}
